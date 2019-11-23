@@ -1,11 +1,6 @@
 package com.ludovic.vimont;
 
 public class GeoHash {
-	private static final char[] BASE32 = { 
-			'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'b', 'c', 'd', 'e', 'f',
-			'g', 'h', 'j', 'k', 'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 
-			'y', 'z' 
-	};
 	private long bits = 0;
 	private byte significantBits = 0;
 	
@@ -41,7 +36,7 @@ public class GeoHash {
 		int numberOfCharacters = (int) Math.ceil(((double) significantBits / 5));
 		for (int i = 0; i < numberOfCharacters; i++) {
 			int pointer = (int) ((bits & firstFiveBitsMask) >>> 59);
-			buf.append(BASE32[pointer]);
+			buf.append(Constants.BASE32[pointer]);
 			bits <<= 5;
 		}
 		return buf.toString();

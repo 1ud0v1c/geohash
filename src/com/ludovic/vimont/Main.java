@@ -7,5 +7,9 @@ public class Main {
 		System.out.println(location);
 		final String locationGeohash = GeoHashHelper.getGeohash(location);
 		System.out.println(locatioName + ": " + locationGeohash);
+
+		final String encodedGeoHash = "u0husp8dqntm";
+		final Location decodedLocation = GeoHashHelper.getLocation(encodedGeoHash);
+		System.out.println(decodedLocation);
 	}
 }
